@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript HTML DOM</title>
+
+    <!-- CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f4ff;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            background-color: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px gray;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        #message {
+            color: green;
+            font-size: 20px;
+            margin: 20px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: darkblue;
+            color: white;
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: royalblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 id="heading">HTML DOM Example</h1>
+
+        <p id="message">Welcome to JavaScript DOM!</p>
+
+        <input type="text" id="username"
+               placeholder="Enter your name">
+
+        <br>
+
+        <button onclick="changeText()">Change Text</button>
+
+        <button onclick="changeColor()">Change Color</button>
+
+        <button onclick="showName()">Show Name</button>
+
+        <button onclick="changeHeading()">Change Heading</button>
+
+        <button onclick="resetPage()">Reset</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Change the paragraph text
+        function changeText() {
+            document.getElementById("message").textContent =
+                "The DOM changed this text!";
+        }
+
+        // Change the paragraph color
+        function changeColor() {
+            document.getElementById("message").style.color = "red";
+        }
+
+        // Get input and display the user's name
+        function showName() {
+            let name = document.getElementById("username").value.trim();
+
+            if (name === "") {
+                document.getElementById("message").textContent =
+                    "Please enter your name!";
+            } else {
+                document.getElementById("message").textContent =
+                    "Hello, " + name + "!";
+            }
+        }
+
+        // Change the heading
+        function changeHeading() {
+            document.getElementById("heading").textContent =
+                "DOM Manipulation";
+        }
+
+        // Restore the original content and styles
+        function resetPage() {
+            document.getElementById("heading").textContent =
+                "HTML DOM Example";
+
+            document.getElementById("message").textContent =
+                "Welcome to JavaScript DOM!";
+
+            document.getElementById("message").style.color = "green";
+
+            document.getElementById("username").value = "";
+        }
+    </script>
+
+</body>
+</html>
